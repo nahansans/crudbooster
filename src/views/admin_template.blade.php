@@ -9,35 +9,29 @@
     <link rel="shortcut icon"
           href="{{ CRUDBooster::getSetting('favicon')?asset(CRUDBooster::getSetting('favicon')):asset('vendor/crudbooster/assets/logo_crudbooster.png') }}">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <!-- Bootstrap 3.4.1 -->
-    <link href="{{ asset("vendor/crudbooster/assets/adminlte/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css"/>
-    <!-- Font Awesome Icons -->
-    <link href="{{asset("vendor/crudbooster/assets/adminlte/font-awesome/css")}}/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ asset('vendor/crudbooster/assets/adminlte/plugins/fontawesome-free/css/all.min.css') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('vendor/crudbooster/assets/adminlte/dist/css/adminlte.min.css') }}">
     <!-- Ionicons -->
     <link href="{{asset("vendor/crudbooster/ionic/css/ionicons.min.css")}}" rel="stylesheet" type="text/css"/>
-    <!-- Theme style -->
-    <link href="{{ asset("vendor/crudbooster/assets/adminlte/dist/css/AdminLTE.min.css")}}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset("vendor/crudbooster/assets/adminlte/dist/css/skins/_all-skins.min.css")}}" rel="stylesheet" type="text/css"/>
 
-    <!-- support rtl-->
-    @if (in_array(App::getLocale(), ['ar', 'fa']))
-        <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css">
-        <link href="{{ asset("vendor/crudbooster/assets/rtl.css")}}" rel="stylesheet" type="text/css"/>
-    @endif
 
     <link rel='stylesheet' href='{{asset("vendor/crudbooster/assets/css/main.css") }}'/>
 
     <!-- load css -->
+    @isset($style_css)
     <style type="text/css">
-        @if($style_css)
-            {!! $style_css !!}
-        @endif
-    </style>
-    @if($load_css)
+        {!! $style_css !!}
+        </style>
+    @endisset
+    @isset($load_css)
         @foreach($load_css as $css)
             <link href="{{$css}}" rel="stylesheet" type="text/css"/>
         @endforeach
-    @endif
+    @endisset
 
     <style type="text/css">
         .dropdown-menu-action {
@@ -86,7 +80,7 @@
 
     @stack('head')
 </head>
-<body class="@php echo (Session::get('theme_color'))?:'skin-blue'; echo ' '; echo config('crudbooster.ADMIN_LAYOUT'); @endphp {{($sidebar_mode)?:''}}">
+<body class="hold-transition sidebar-mini @php echo (Session::get('theme_color'))?:'skin-blue'; echo ' '; echo config('crudbooster.ADMIN_LAYOUT'); @endphp">
 <div id='app' class="wrapper">
 
     <!-- Header -->
@@ -207,17 +201,19 @@
 @include('crudbooster::admin_template_plugins')
 
 <!-- load js -->
-@if($load_js)
+@isset($load_js)
     @foreach($load_js as $js)
         <script src="{{$js}}"></script>
     @endforeach
-@endif
+@endisset
 <script type="text/javascript">
     var site_url = "{{url('/')}}";
-    @if($script_js)
-        {!! $script_js !!}
-    @endif
 </script>
+@isset($script_js)
+    <script type="text/javascript">
+        {!! $script_js !!}
+    </script>
+@endisset
 
 @stack('bottom')
 

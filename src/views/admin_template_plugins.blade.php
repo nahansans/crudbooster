@@ -4,14 +4,12 @@
 <![endif]-->
 
 <!-- REQUIRED JS SCRIPTS -->
-
-<!-- jQuery 2.2.3 -->
-<script src="{{ asset ('vendor/crudbooster/assets/adminlte/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
-
-<!-- Bootstrap 3.4.1 JS -->
-<script src="{{ asset ('vendor/crudbooster/assets/adminlte/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+<!-- jQuery -->
+<script src="{{ asset('vendor/crudbooster/assets/adminlte/plugins/jquery/jquery.min.js') }}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset('vendor/crudbooster/assets/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
-<script src="{{ asset ('vendor/crudbooster/assets/adminlte/dist/js/app.js') }}" type="text/javascript"></script>
+<script src="{{ asset('vendor/crudbooster/assets/adminlte/dist/js/adminlte.min.js') }}"></script>
 
 <!--BOOTSTRAP DATEPICKER-->
 <script src="{{ asset ('vendor/crudbooster/assets/adminlte/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
