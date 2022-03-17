@@ -24,7 +24,7 @@
         "barryvdh/laravel-dompdf": "1.0.0",
         "doctrine/dbal": "~3.3.3",
         "maatwebsite/excel": "^3.1",
-        "intervention/imagecache":"2.4.2",
+        "intervention/imagecache":"^2.3",
         "laravel/framework": "^7.30|^8.34|^9.2"
     },
     "autoload": {
