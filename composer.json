@@ -1,5 +1,6 @@
 {
     "name": "nahansans/crudbooster",
+    "version": "8.0.6",
     "description": "CRUDBooster Is CRUD Generator Based On Laravel Easy To Make An Advanced Backend",
     "type": "library",
     "license": "MIT",
